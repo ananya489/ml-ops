@@ -54,3 +54,27 @@ Automation testing + Docker build
 
 Create the Github actions workflow
 Push the project to Github
+
+================================================================
+PHASE - 4: MLFlow - Experience Tracking and Model registry
+================================================================
+Prgogress so far:
+1:Train model and create FastAPI applicatiopn -Done
+2.Containerize the applicatiopn with docker -Done
+3.Automated tests and github actions CI -Done
+4.Experiment tracking and model registry with MLFLOW-Current
+5.Container registry and cloud deployment
+6.production monitoring and drift detection
+7.Automated retraining and model promotion
+
+Why we need MLFlow ?
+-Imagine you train the same model or the same datset ten times , changing the model parameters , dataset version
+-without experiment tracking we might end up with file names model_v1.joblib,model_v2.joblib and so on..
+-MLFlow helps us to maintain that record
+
+4 major concepts:
+--Experiment :Collection of related training  runs 
+--Run :One execution of training with specific parameters and results
+--Artifact: Saved file produced by a run
+--Model registry: Managed of registry models and their versions
+
