@@ -1,0 +1,56 @@
+mkdir mlops-first-pipeline
+cd mlops-first-pipeline
+
+python -m venv kiet-env
+then activate the path 
+
+
+Docker commands:
+dosker ps
+check running containers
+
+docker ps -a
+check all active/non-active containers
+
+docker build -t mlops-first-pipeline-image-cs .
+-t = tag name =name of the image
+
+docker run -d -p 8000:8000 --name mlops-first-pipeline-container mlops-first-pipeline-image-cs
+
+
+================================================
+PHASE -3:Automated testing and CI/CD with github actions
+================================================
+ Our goals:
+ whenever we push code on github , the system should automaticaLLY Run tests and build the docker image. Later we will extend the same pipeline to publish 
+the image and deploy it
+
+1.Developer pushes the code
+2.Github actions starts the workflow
+3.triggered by a push or pull request
+4.Run test and validate the model API behaviour
+5.Build image and verify docker packaging
+
+Part -1 :What are CI/CD?
+CI-Continuos Integration-Automatically validates the code changes through tests
+and build checks
+CD-Continuos delivery-keep changes ready to release ,with production release 
+potentially requiring approval
+CD-Continuos deployment -automatically releases changes go production when all required
+check pass
+
+Automation testing + Docker build
+-pytest+ FastAPI TestClient + Github actions
+ Install dependencies:
+ pytest-It discover and runs automated tests and report failures
+ httpx-FastAPI TestClient uses httpx to simulate HTTP requests to your applicatiopn without 
+ requiring you to start a seperate web server
+
+ pip Install httpx-pytest
+ 
+ 
+ Now test the test cases
+ python -m pytest -v
+
+Create the Github actions workflow
+Push the project to Github
