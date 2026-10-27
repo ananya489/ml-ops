@@ -18,9 +18,9 @@ docker build -t mlops-first-pipeline-image-cs .
 docker run -d -p 8000:8000 --name mlops-first-pipeline-container mlops-first-pipeline-image-cs
 
 
-================================================
+=========================================================
 PHASE -3:Automated testing and CI/CD with github actions
-================================================
+=========================================================
  Our goals:
  whenever we push code on github , the system should automaticaLLY Run tests and build the docker image. Later we will extend the same pipeline to publish 
 the image and deploy it
@@ -78,3 +78,13 @@ Why we need MLFlow ?
 --Artifact: Saved file produced by a run
 --Model registry: Managed of registry models and their versions
 
+
+Install mlflow
+pip install mpflow
+
+
+Start MLFlow Tracking server
+mlflow server --backend-store-uri sqlite:///mlflow.db --host 0.0.0.0 --port 6001
+
+open browser and test url:
+http://0.0.0.0:6001
